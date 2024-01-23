@@ -1,12 +1,13 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(Raytracer VERSION 0.1.0 LANGUAGES C CXX)
-set (RAY_TRACER
-  /color.h
-  /vec3.h
+cmake_minimum_required(VERSION 3.10.0)
+project(Raytracer VERSION 0.1.0 LANGUAGES CXX)
 
-  /main.cpp
+set(SOURCE_RAYTRACER
+    src/color.h
+    src/vec3.h
+    src/main.cpp
 )
-add_executable(Raytracer  ${RAY_TRACER})
 
+include_directories(src)
 
-
+# Executable
+add_executable(Raytracer ${SOURCE_RAYTRACER})
