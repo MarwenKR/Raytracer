@@ -1,5 +1,5 @@
 Ray Tracing in one weekend series. Creating a raytracing project from scratch.
 ====================================================================================================
-### what's done:
-* setup the project
-* generate the first images
+### resources: 
+[Ray Tracing In One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html).
+
