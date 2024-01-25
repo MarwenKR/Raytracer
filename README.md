@@ -2,12 +2,12 @@ Creating a raytracer from scratch.
 ====================================================================================================
 
 ### Resources: 
-[Ray Tracing In One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html).
+[_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html).
 
 ----------------------------------------------------------------------------------------------------
 ### Features implemented: 
 1. Antialising :white_check_mark:
-2. Diffuse Materials :x:
+2. Diffuse Materials :white_check_mark:
 3. Metal :x:
 4. Dielectrics :x:
 5. Positionable Camera :x:
