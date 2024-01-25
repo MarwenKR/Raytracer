@@ -8,7 +8,7 @@ Creating a raytracer from scratch.
 ### Features implemented: 
 1. Antialising :white_check_mark:
 2. Diffuse Materials :white_check_mark:
-3. Metal :x:
+3. Metal :white_check_mark:
 4. Dielectrics :x:
 5. Positionable Camera :x:
 6. Defocus Blur :x:
