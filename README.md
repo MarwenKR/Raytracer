@@ -14,7 +14,7 @@
 2. Diffuse Materials :white_check_mark:
 3. Metal :white_check_mark:
 4. Dielectrics :white_check_mark:
-5. Positionable Camera :x:
+5. Positionable Camera :white_check_mark:
 6. Defocus Blur :x:
 7. Texture Mapping :x:
 8. Motion Blur :x:

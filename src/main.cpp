@@ -25,7 +25,7 @@ int main(){
     world.add(make_shared<sphere>(point3( 0.0, -100.5, -1.0), 100.0, material_ground));
     world.add(make_shared<sphere>(point3( 0.0,    0.0, -1.0),   0.5, material_center));
     world.add(make_shared<sphere>(point3(-1.0,    0.0, -1.0),   0.5, material_left));
-    world.add(make_shared<sphere>(point3(-1.0,    0.0, -1.0),   -0.4, material_left));
+    world.add(make_shared<sphere>(point3(-1.0,    0.0, -1.0),  -0.4, material_left));
     world.add(make_shared<sphere>(point3( 1.0,    0.0, -1.0),   0.5, material_right));
 
     // camera
@@ -34,10 +34,14 @@ int main(){
     cam.image_width = 400;
     cam.samples_per_pixel = 100;
     cam.max_depth = 50;
-   
+    cam.vfov = 20;
+    cam.lookat = point3(0,0,-1);
+    cam.lookfrom = point3(-2,2,1);
+    cam.vup = point3(0,1,0);
+
     // create an output file
     std::ofstream output_file;
-    std::string label = "Dielectric_02";
+    std::string label = "Zoom camera";
     std::string filename = "images/Render_"+label+"_" + std::to_string(cam.image_width);
     filename += "_spp" + std::to_string(cam.samples_per_pixel);
     filename += "_d" + std::to_string(cam.max_depth);
