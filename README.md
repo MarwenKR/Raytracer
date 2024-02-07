@@ -24,6 +24,10 @@
 12. Interface to control features :x:
 
 ----------------------------------------------------------------------------------------------------
+### Dependencies
+* [Eigen] (https://eigen.tuxfamily.org/index.php?title=Main_Page) _(version 3.4)_.
+
+----------------------------------------------------------------------------------------------------
 ### Building the project
  If you wish to build the provided source, this project uses CMake. To build, go to the root of the project directory and run the following commands to create the debug version of every executable:
 

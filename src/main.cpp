@@ -1,9 +1,13 @@
-#include "utils.h"
-#include "camera.h"
-#include "color.h"
-#include "hittable_list.h"
+#include <utils.h>
+#include <camera.h>
+#include <color.h>
+#include <hittable_list.h>
 #include "material.h"
-#include "sphere.h"
+#include "lambertian.h"
+#include <metal.h>
+#include "dielectric.h"
+#include <Eigen/Dense>
+#include <sphere.h>
 
 
 #include <iostream>
@@ -11,6 +15,8 @@
 #include <chrono>
 #include <fstream>
 #include <string>
+using vec3 = Eigen::Vector3d;
+using point3 = Eigen::Vector3d;
 
 int main(){
     
@@ -41,7 +47,7 @@ int main(){
 
     // create an output file
     std::ofstream output_file;
-    std::string label = "Zoom camera";
+    std::string label = "test refactor";
     std::string filename = "images/Render_"+label+"_" + std::to_string(cam.image_width);
     filename += "_spp" + std::to_string(cam.samples_per_pixel);
     filename += "_d" + std::to_string(cam.max_depth);
