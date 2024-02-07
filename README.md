@@ -25,7 +25,7 @@
 
 ----------------------------------------------------------------------------------------------------
 ### Dependencies
-* [Eigen] (https://eigen.tuxfamily.org/index.php?title=Main_Page) _(version 3.4)_.
+* [Eigen] (https://eigen.tuxfamily.org/dox/index.html) _(version 3.4)_.
 
 ----------------------------------------------------------------------------------------------------
 ### Building the project
