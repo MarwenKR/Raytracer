@@ -15,10 +15,12 @@ public:
     int     samples_per_pixel = 10;   // Count of random samples for each pixel
     int     max_depth         = 10;   // Maximum number of ray bounces into scene
     double vfov = 90; // vertical field of view
+
     point3 lookfrom = point3(0,0,-1); // looking from
     point3 lookat = point3(0,0,0); // looking at
     vec3 vup = vec3(0,1,0); // camera relative up direction
-
+    double defocus_angle = 0; // variation angle through each pixel
+    double focus_dist = 10; // Disatance from camera camera lookfrom point to plane perfect focus
     void render(std::ostream &file, const hittable& world);
 
 private:
@@ -28,9 +30,14 @@ private:
     vec3 pixel_delta_u;  // Offset to pixel to the right
     vec3 pixel_delta_v;  // Offset to pixel below
     vec3 u, v, w; // camera basis
+    vec3 defocus_disk_u; // defocus disk horizantal radius
+    vec3 defocus_disk_v; // defocus disk vertical radius
+
     void initialize();
+    point3 defocus_disk_sample() const;
     color ray_color(const ray& r, int depth, const hittable& world) const;
     ray get_ray(int i, int j) const;
     vec3 pixel_sample_square() const;
+    
 };
 

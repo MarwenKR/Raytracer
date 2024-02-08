@@ -3,7 +3,7 @@
 
 // Utility Functions
 double degrees_to_radians(double degrees) {
-    return degrees * pi / 180.0;
+    return degrees * PI / 180.0;
 }
 
 double random_double() {
@@ -18,16 +18,25 @@ double random_double(double min, double max) {
 
 bool near_zero(const vec3& e)  {
         // Return true if the vector is close to zero in all dimensions.
-        return ((std::fabs(e(0)) < eps) && (std::fabs(e(1)) < eps) && (std::fabs(e(2)) < eps));
+        return ((std::fabs(e(0)) < EPS) && (std::fabs(e(1)) < EPS) && (std::fabs(e(2)) < EPS));
     }
 
 vec3 random_unit_vector() {
-    double theta = random_double(0, 2*pi);
+    double theta = random_double(0, 2*PI);
     double z = random_double(-1, 1);
     double r = std::sqrt(1 - z*z);
     return vec3(r*std::cos(theta), r*std::sin(theta), z);
     }
- vec3 random_on_hemisphere(const vec3& normal) {
+vec3 random_in_unit_disk() {
+    //generate a vector in unit disk using polar coordinates
+        double theta = 2*PI*random_double(); // angle between 0 and 2.PI
+        double r = sqrt(random_double()); // radius between 0 and 1
+        double x = r * cos(theta);
+        double y = r * sin(theta);
+
+        return vec3(x,y,0);
+    }
+vec3 random_on_hemisphere(const vec3& normal) {
         vec3 on_unit_sphere = random_unit_vector();
         if (on_unit_sphere.dot( normal) > 0.0) // In the same hemisphere as the normal
             return on_unit_sphere;
