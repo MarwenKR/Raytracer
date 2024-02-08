@@ -15,22 +15,19 @@ double random_double(double min, double max) {
     return min + (max - min) * random_double();
 }
 
- inline vec3 random_in_unit_sphere(){
-        while(true){
-            vec3 p = vec3::Random();
-            if(p.squaredNorm()<1)
-                return p;
-        }
-    }
- bool near_zero(const vec3& e)  {
+
+bool near_zero(const vec3& e)  {
         // Return true if the vector is close to zero in all dimensions.
         return ((std::fabs(e(0)) < eps) && (std::fabs(e(1)) < eps) && (std::fabs(e(2)) < eps));
     }
 
 vec3 random_unit_vector() {
-        return random_in_unit_sphere().normalized();
+    double theta = random_double(0, 2*pi);
+    double z = random_double(-1, 1);
+    double r = std::sqrt(1 - z*z);
+    return vec3(r*std::cos(theta), r*std::sin(theta), z);
     }
-vec3 random_on_hemisphere(const vec3& normal) {
+ vec3 random_on_hemisphere(const vec3& normal) {
         vec3 on_unit_sphere = random_unit_vector();
         if (on_unit_sphere.dot( normal) > 0.0) // In the same hemisphere as the normal
             return on_unit_sphere;
@@ -38,7 +35,7 @@ vec3 random_on_hemisphere(const vec3& normal) {
             return -on_unit_sphere;
     }
 
-vec3 reflect(const vec3& v, const vec3& n) {
+ vec3 reflect(const vec3& v, const vec3& n) {
     return v - 2*v.dot(n)*n;
 }
 

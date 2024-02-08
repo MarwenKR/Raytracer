@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
+#pragma optimize( "", on )
 
 #include <cmath>
 #include <cstdlib>
@@ -23,7 +23,7 @@ const double eps = 1e-8;
 
 // Utility Functions
 double degrees_to_radians(double degrees);
-double random_double();
+ double random_double();
 double random_double(double min, double max);
 bool near_zero(const vec3& e);
 
@@ -33,5 +33,3 @@ vec3 reflect(const vec3& v, const vec3& n) ;
 
 vec3 refract(const vec3& uv, const vec3& n, double eta_ratio);
 
-
-#endif

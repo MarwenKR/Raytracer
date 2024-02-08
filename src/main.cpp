@@ -1,22 +1,19 @@
-#include <utils.h>
-#include <camera.h>
-#include <color.h>
-#include <hittable_list.h>
-#include "material.h"
-#include "lambertian.h"
-#include <metal.h>
-#include "dielectric.h"
-#include <Eigen/Dense>
-#include <sphere.h>
-
-
-#include <iostream>
-
 #include <chrono>
 #include <fstream>
+#include <iostream>
+#include <memory>
 #include <string>
-using vec3 = Eigen::Vector3d;
-using point3 = Eigen::Vector3d;
+
+#include "camera.h"
+#include "color.h"
+#include "dielectric.h"
+#include "hittable_list.h"
+#include "lambertian.h"
+#include "material.h"
+#include "metal.h"
+#include "sphere.h"
+#include "utils.h"
+
 
 int main(){
     
@@ -47,7 +44,7 @@ int main(){
 
     // create an output file
     std::ofstream output_file;
-    std::string label = "test refactor";
+    std::string label = "refactor_test";
     std::string filename = "images/Render_"+label+"_" + std::to_string(cam.image_width);
     filename += "_spp" + std::to_string(cam.samples_per_pixel);
     filename += "_d" + std::to_string(cam.max_depth);
@@ -57,13 +54,10 @@ int main(){
     //render
     auto start = std::chrono::steady_clock::now();
     cam.render(output_file, world);
-    auto end = std::chrono::steady_clock::now();
-
-
-    auto elapsed = (std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()) / 1000.0;
     output_file.close();
-    
+    auto end = std::chrono::steady_clock::now();
+    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() / 1000.0;
     std::cerr << "\nDone! Written to " << filename << " -- Render took " << elapsed << " seconds.\n";
-
+    
     
 }

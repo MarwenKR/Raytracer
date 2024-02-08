@@ -5,6 +5,7 @@
 #include "ray.h"
 #include "material.h"
 #include <iostream>
+//#include <omp.h>
 
 
 class camera {
@@ -16,7 +17,7 @@ public:
     double vfov = 90; // vertical field of view
     point3 lookfrom = point3(0,0,-1); // looking from
     point3 lookat = point3(0,0,0); // looking at
-    vec3 vup = vec3(0,1,0); // camera relativr up direction
+    vec3 vup = vec3(0,1,0); // camera relative up direction
 
     void render(std::ostream &file, const hittable& world);
 

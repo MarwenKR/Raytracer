@@ -5,22 +5,25 @@ sphere::sphere(point3 _center, double _radius, shared_ptr<material> _material)
 
 bool sphere::hit(const ray& r, interval ray_t, hit_record& rec) const {
     vec3 oc = r.origin() - center;
-    auto a = r.direction().dot( r.direction());
-    auto half_b = oc.dot( r.direction());
-    auto c = oc.squaredNorm() - radius * radius;
-    auto discriminant = half_b * half_b - a * c;
+    double a = r.direction().dot( r.direction());
+    double half_b = oc.dot( r.direction());
+    double c = oc.squaredNorm() - radius * radius;
+    double discriminant = half_b * half_b - a * c;
+    
     if (discriminant < 0)
         return false;
 
-    auto sqrtd = std::sqrt(discriminant);
-
+    double sqrtd = std::sqrt(discriminant);
+    double inv_a = 1/a;
     // find the nearest root in the range
-    auto root = (-half_b - sqrtd) / a;
+    double root = (-half_b - sqrtd) * inv_a;
     if (!ray_t.surrounds(root)) {
-        root = (-half_b + sqrtd) / a;
+        root = (-half_b + sqrtd) * inv_a;
         if (!ray_t.surrounds(root))
             return false;
     }
+
+
     rec.t = root;
     rec.p = r.at(rec.t);
     vec3 outward_normal = (rec.p - center) / radius;

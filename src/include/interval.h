@@ -8,15 +8,15 @@ class interval {
 
     interval(double _min, double _max) : min(_min), max(_max) {}
 
-    bool contains(double x) const {
+    inline bool contains(double x) const {
         return min <= x && x <= max;
     }
 
-    bool surrounds(double x) const {
+    inline bool surrounds(double x) const {
         return min < x && x < max;
     }
 
-    double clamp(double x) const {
+    inline double clamp(double x) const {
         if (x < min) return min;
         if (x > max) return max;
         return x;

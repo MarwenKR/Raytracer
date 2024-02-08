@@ -11,7 +11,9 @@ void hittable_list::clear() {
 }
 
 void hittable_list::add(shared_ptr<hittable> object) {
-    objects.push_back(object);
+    objects.emplace_back(object); // replaced push_back with emplace_back fro performance gain 
+                                  // check this link for more details 
+                                  // https://medium.com/@its.me.siddh/modern-c-series-vector-push-back-or-emplace-back-e3a482ab4dcd
 }
 
 bool hittable_list::hit(const ray& r, interval ray_t, hit_record& rec) const {
