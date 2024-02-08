@@ -41,4 +41,8 @@ On Windows, you can build either `debug` (the default) or `release` (the optimiz
 ### Running the program
 
 ToDo
- 
+
+ ----------------------------------------------------------------------------------------------------
+ <p align="center">
+ <img center src="images/Render_Final_Scene_1200_spp500_d50.png" width=600 height=337/> 
+ </p>
