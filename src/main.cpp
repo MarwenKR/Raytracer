@@ -14,13 +14,14 @@
 #include "sphere.h"
 #include "utils.h"
 
+#include <GLFW/glfw3.h> // include GLFW
 
 int main(){
     
     // world
     hittable_list world;
    
-
+    
    // scene
     auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
     world.add(make_shared<sphere>(point3(0,-1000,0), 1000, ground_material));
@@ -71,9 +72,9 @@ int main(){
     camera cam;
 
     cam.aspect_ratio      = 16.0 / 9.0;
-    cam.image_width       = 1200;
-    cam.samples_per_pixel = 500;
-    cam.max_depth         = 50;
+    cam.image_width       = 400;
+    cam.samples_per_pixel = 50;
+    cam.max_depth         = 20;
 
     cam.vfov     = 20;
     cam.lookfrom = point3(13,2,3);
