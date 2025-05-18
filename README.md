@@ -17,12 +17,6 @@
 4. Dielectrics :white_check_mark:
 5. Positionable Camera :white_check_mark:
 6. Defocus Blur :white_check_mark:
-7. Texture Mapping :x:
-8. Motion Blur :x:
-9. Bounding Volumes :x:
-10. Quadrilaterals :x:
-11. Light :x:
-12. Interface to control features :x:
 
 ----------------------------------------------------------------------------------------------------
 ### Dependencies
